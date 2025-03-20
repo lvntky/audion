@@ -9,6 +9,8 @@ import javafx.stage.Stage;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+import java.util.Objects;
+
 import static com.leventkaya.util.AudionUtil.*;
 
 @RequiredArgsConstructor
@@ -23,13 +25,13 @@ public class AudionGUI extends Application {
         StackPane layout = new StackPane();
 
         Scene scene = new Scene(layout, DEFAULT_WIDTH, DEFAULT_HEIGHT);
-        /*scene.getStylesheets().add(
-                (getClass().getResource(THEME_PATH)).toExternalForm());*/
+        scene.getStylesheets().add(
+                (Objects.requireNonNull(getClass().getResource(THEME_PATH))).toExternalForm());
 
         Button startButton = new Button("Start Analysis");
         startButton.setFont(new Font("Arial", 16));
         startButton.setStyle(
-                "-fx-background-color: #4CAF50; -fx-text-fill: white; -fx-padding: 10 20;");
+                " -fx-text-fill: white; -fx-padding: 10 20;");
         startButton.setOnAction(e -> log.info("Start button clicked"));
 
         layout.getChildren().addAll(startButton);

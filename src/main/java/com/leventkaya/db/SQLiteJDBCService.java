@@ -1,12 +1,16 @@
 package com.leventkaya.db;
 
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
+import static com.leventkaya.util.AudionUtil.DATABASE_URL;
+
 @Slf4j
+@Getter
 public class SQLiteJDBCService {
 
     private final String databaseUrl;
@@ -26,26 +30,34 @@ public class SQLiteJDBCService {
         }
     }
 
-    public synchronized SQLiteJDBCService getInstance() {
+    public synchronized static SQLiteJDBCService getInstance() {
         if (instance == null) {
-            instance = new SQLiteJDBCService(databaseUrl);
+            instance = new SQLiteJDBCService(DATABASE_URL);
         }
         return instance;
     }
 
-    public Connection getConnection() {
-        return connection;
+    public void createTable(String createStatement) {
+        try (Statement statement = this.connection.createStatement()) {
+            statement.execute(createStatement);
+            log.info("Table creation statement executed successfully.");
+        } catch (Exception e) {
+            log.error("Failed to create table: " + e.getMessage());
+            throw new RuntimeException("Failed to create table: " + createStatement, e);
+        }
     }
 
-    public void createTable(String createStatement) {
-        try(Statement statement = this.connection.createStatement()) {
-            if (statement.execute(createStatement)) {
-                log.info("Table created");
+
+    public void closeConnection() {
+        try {
+            if (this.connection != null) {
+                this.connection.close();
+                log.info("Connection closed");
             } else {
-                log.error("Table not created");
+                log.error("Connection not closed, this connection is null");
             }
         } catch (Exception e) {
-            throw new RuntimeException("Failed to create table: " + createStatement);
+            throw new RuntimeException("Failed to close connection: " + e.getMessage());
         }
     }
 }

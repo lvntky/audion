@@ -53,7 +53,10 @@ This project is licensed under the MIT License.
 ## Contributing
 Contributions are welcome! Feel free to open an issue or submit a pull request.
 
+## Acknowledgements
+- [Creating Shazam in Java](https://www.royvanrijn.com/blog/2010/06/creating-shazam-in-java/)
+- [How Shazam Works](http://web.archive.org/web/20100813022319/http://laplacian.wordpress.com/2009/01/10/how-shazam-works/)
+- [An Industrial-Strength Audio Search Algorithm](https://web.archive.org/web/20100622213403/http://www.ee.columbia.edu/~dpwe/papers/Wang03-shazam.pdf)
 ## Contact
 📧 leventkayadev@gmail.com
-🌐 [GitHub Repository](https://github.com/lvntky/audion)
 

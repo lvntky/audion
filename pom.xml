@@ -11,12 +11,8 @@
 
     <properties>
         <!-- Target Java 21 bytecode -->
-        <maven.compiler.source>21</maven.compiler.source>
-        <maven.compiler.target>21</maven.compiler.target>
-
-        <!-- Alternatively, you could do:
-             <maven.compiler.release>21</maven.compiler.release>
-             (and remove <source>/<target>) -->
+        <maven.compiler.source>22</maven.compiler.source>
+        <maven.compiler.target>22</maven.compiler.target>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -49,6 +45,20 @@
             <artifactId>logback-classic</artifactId>
             <version>1.4.12</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.openjfx/javafx-controls -->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>24</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-fxml</artifactId>
+            <version>24</version>
+        </dependency>
+
     </dependencies>
 
     <build>

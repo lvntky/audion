@@ -1,11 +1,10 @@
 package com.leventkaya.db;
 
-import com.leventkaya.entity.Fingerprint;
+import com.leventkaya.model.Fingerprint;
 import com.leventkaya.util.SqlUtil;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 public class FingerprintRepository extends AbstractSQLService {
 

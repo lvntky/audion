@@ -20,5 +20,9 @@ public class Main {
 
         AudionGUI app = new AudionGUI();
         app.run();
+        if (app.hasExited()) {
+            fingerprintRepository.closeConnection();
+            System.exit(0);
+        }
     }
 }

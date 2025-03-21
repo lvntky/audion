@@ -1,4 +1,4 @@
-package com.leventkaya.entity;
+package com.leventkaya.model;
 
 import lombok.Builder;
 import lombok.Data;
